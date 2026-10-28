@@ -1,6 +1,6 @@
-package Principal;
+package principal;
 
-import Elementos.Item;
+import elementos.Item;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -31,7 +31,7 @@ public class ProblemaCajero {
     }
 
     public static void send_ok(BlockingQueue<Boolean> buzonRespuesta, boolean valor) {
-        buzonRespuesta.offer(valor); // Asincrono
+        buzonRespuesta.offer(valor); // Asincrono (no bloquea)
     }
 
     public static boolean receive_ok(BlockingQueue<Boolean> buzonRespuesta) throws InterruptedException {
@@ -63,7 +63,7 @@ public class ProblemaCajero {
                         Item peticion = puedoSacar.take();
                         System.out.println("Sacando del cajero €" + peticion.cantidad +
                                 " solicitados por el proceso " + peticion.idCliente +
-                                " (Disponible: €" + dinero + ")");
+                                " (Disponible actualmente: €" + dinero + ")");
 
                         // if peticion.cantidad < dinero
                         if (peticion.cantidad < dinero) {

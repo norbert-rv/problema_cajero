@@ -1,4 +1,4 @@
-package Elementos;
+package elementos;
 
 public class Item {
     public final int cantidad;
